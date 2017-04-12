@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Home | IdeaBox</title>
+ 
+ 
+   <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+   <link rel="shortcut icon" type="image/png" href="/static/images/favicon.png"/>
+
+   <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
+      <link type="text/css" rel="stylesheet" href="/static/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ 
+ 
+</head>
+ 
+<body>
+ 
+        <div class="header">
+            <nav class="teal">
+                <ul class="right nav nav-pills pull-right">
+                	<li role="presentation" class=""><a href="/home">Home</a></li>
+                    <li role="presentation" class=""> <a href="/profile"> Profile </a> </li>
+                    <li role="presentation" class=""> <a href="/newidea"> New Idea </a> </li>
+                    <li role="presentation" class=""> <a href="/logout"> Logout </a> </li>                   
+                </ul>
+            </nav>
+        </div>
+
+    <div class="container">
+        <div class="row">
+          <div class="col s12 m12 l12">
+            
+              <span class="center"> <h4> {{idea.name}} </h4> </span>
+              <p class="center">{% filter markdown %}{{ idea.description }}{% endfilter %}</p>
+            
+            <div class="right">
+              <a href="/upvote/{{idea.id}}/"> <i class="material-icons">thumb_up</i> {{idea.upvotes}}</a>
+              <a href="/downvote/{{idea.id}}/"> <i class="material-icons">thumb_down</i> {{idea.downvotes}} </a>
+            </div>
+          
+          <div id="disqus_thread"></div>
+
+          </div>
+
+          
+          
+
+        </div>
+ 
+    </div>
+
+    <footer class="page-footer teal">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text"> Details </h5>
+              <p class="grey-text text-lighten-4">
+                More awesome details about ideabox
+              </p>
+            </div>
+            <div class="col l4 offset-12 s12">
+              <h5 class="white-text"> Links </h5>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container"> &copy; Andela Idea Box 2017 </div>
+        </div>
+      </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="static/js/materialize.min.js"></script>
+
+	<script>
+
+	/**
+	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+	/*
+	var disqus_config = function () {
+	this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+	this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+	*/
+	(function() { // DON'T EDIT BELOW THIS LINE
+	var d = document, s = d.createElement('script');
+	s.src = 'https://ideabox-1.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+	})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+</body>
+ 
+</html>
